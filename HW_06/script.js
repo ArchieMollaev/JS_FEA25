@@ -31,7 +31,7 @@ function createElement(parentElement, el = 'div', id, width, height, backgroundC
 }
 createElement (container, 'div', 'windowOne', '150px', '150px', '#fd898a', 'absolute', '30px','50px');
 createElement (container, 'div', 'windowTwo', '150px', '150px', '#7f8be8', 'absolute', '130px','130px', '1');
-createElement (container,  'div', 'windowThree', '150px', '150px', '#56ec9c', 'absolute', '230px','210px');
+createElement (container, 'div', 'windowThree', '150px', '150px', '#56ec9c', 'absolute', '230px','210px');
 
 // const createWindowOne = document.createElement('div');
 // createWindowOne.id = 'windowOne';
@@ -109,7 +109,7 @@ item.append(const_4)
 item.append(const_5)
 }
 
-///////////4//////////////////нашёл готовое решение, но не до конца понимаю как работает
+///////////4//////////////////
 function sampleFunc () {
     console.log ( `${arguments.callee.name}: ${arguments[0]} | ${arguments[1]}` )}
     
@@ -129,18 +129,78 @@ const group = [{
     lastName: "Domar",
     age: 17,
     notebook: true,
+    toString() {
+      return `name - ${this.name}, lastName - ${this.lastName}, age - ${this.age}, hasNotebook - ${this.notebook}`
+    }
   }, 
   {
     name: "Alex",
     lastName: "Sakun",
     age: 18,
-    notebook: true,  
+    notebook: true, 
+    toString() {
+      return `name - ${this.name}, lastName - ${this.lastName}, age - ${this.age}, hasNotebook - ${this.notebook}`
+    }
   },
   {
     name: "Mert",
     lastName: "Alagoz",
     age: 19,
-    notebook: true,  
+    notebook: true, 
+    toString() {
+      return `name - ${this.name}, lastName - ${this.lastName}, age - ${this.age}, hasNotebook - ${this.notebook}`
+    } 
   },
 ]
+
+function getStudentsList (arr) {
+  for (let i of arr) {
+    console.log(i.toString())
+  }
+}
+
+getStudentsList(group)
+
+
+
+
+
+
+
+
+/////////пробные варианты////////////////////
+
+// function getStudentsList(arrayOfStudents) {
+//   arrayOfStudents.forEach(function (item) {
+//     item.toString = function () {
+//       let str = "";
+//       for (key in this) {
+//         if (typeof this[key] !== "function") {
+//           str +=
+//             key.charAt(0).toUpperCase() +
+//             key.slice(1) +
+//             " - " +
+//             this[key] +
+//             ", ";
+//         }
+//       }
+
+//       return str.substring(0, str.length - 2);
+//     };
+//     console.log(String(item));
+//   });
+// }
+
+// getStudentsList(group);
+
+
+// const getStudentsList = (arr) => {
+//   arr.forEach(item => {
+//     item.toString = function() {
+//       return console.log`name - ${this.name}, lastName - ${this.lastName}, age - ${this.age}, hasNotebook - ${this.notebook}`
+//     }
+//   })
+// }
+
+// getStudentsList(group);
 

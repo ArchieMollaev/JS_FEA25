@@ -19,7 +19,7 @@ const transition = function (){
     pigGrow.style.transition = 'all 5s'
 }
 
-p.addEventListener('click', createImg)
+p.addEventListener('click', createImg, {once:true})/////////не могу получить доступ к созданному через append элементу
 
 // pigGrow.addEventListener('mouseover', transition)
 
@@ -49,3 +49,49 @@ const resultCounter = arr.reduce(function(sum, elem) {
 		return sum + elem;
 	}
 }); 
+
+//////////4//////////
+// const resultSpan = document.getElementById('result')
+const inputId = document.getElementById('inputId');
+    // inputId.oninput = function () {
+    //     resultSpan.innerHTML = inputId.value;
+	// };
+	
+const button = document.getElementById('button')
+button.onclick = function() {
+	return console.log(inputId.value);
+}
+
+//////////5//////////
+const elems = document.getElementsByTagName('a');
+for (let i of elems) {
+	i.addEventListener('mouseover', innerHref);
+}
+ 
+function innerHref () {
+	this.innerHTML = this.innerHTML + '(' + this.href + ')';
+	return this.removeEventListener('mouseover', innerHref);////////как сделать чтобы после того как убрал курсор ссылка пропадала?
+}
+
+//////////6//////////
+const hide = document.getElementById('hide')
+const hidden = document.getElementById('hidden')
+
+hide.onclick = function () {
+	hidden.style.display = 'none'
+}
+
+//////////7//////////
+const inputRound = document.getElementById('inputRound')
+const buttonRound = document.getElementById('buttonRound')
+const round = document.getElementById('round')
+
+
+buttonRound.onclick = function () {
+	// if (typeof inputRound.value !== Number) {
+	// 	inputRound.value = 'insert correct value'
+	// } else {
+	round.style.marginLeft = `${inputRound.value}px`
+	round.style.transition = 'all 2s'
+// }
+}
