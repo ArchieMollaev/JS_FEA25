@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: lightgray;
+}
+#game {
+  margin-top: 100px;
+  margin-left: 400px ;
+  display: flex;
+  width: 209px;
+  height: 209px;
+  border: solid 3px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cell {
+  border: solid 2px;
+  min-width: 65px;
+  min-height: 65px;
+  font-size: 35px;
+  text-align: center;
+}
+
+.cell:hover {
+  background-color: aqua;
+  transition: 0.5s;
+}
+
+#now {
+  width: 140px;
+  font-size: 18px;
+  margin-left: 400px;
+}
