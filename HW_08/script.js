@@ -112,3 +112,4 @@ function inner () {
   inp.value = sumArr.join('+') + '=' + result
   }
 ///////////////////
+ 

@@ -8,7 +8,7 @@ createImage.id = 'image'
 createImage.style.width = '100px'
 createImage.style.height = '100px'
 createImage.style.backgroundImage = 'url(./1314.jpg)'
-return document.body.append(createImage)
+return document.body.prepend(createImage)
 }
 
 const pigGrow = document.getElementById('image')
@@ -88,10 +88,10 @@ const round = document.getElementById('round')
 
 
 buttonRound.onclick = function () {
-	// if (typeof inputRound.value !== Number) {
-	// 	inputRound.value = 'insert correct value'
-	// } else {
+	if (isNaN(inputRound.value)) {
+		inputRound.value = 'insert correct value'
+	} else {
 	round.style.marginLeft = `${inputRound.value}px`
 	round.style.transition = 'all 2s'
-// }
+}
 }
