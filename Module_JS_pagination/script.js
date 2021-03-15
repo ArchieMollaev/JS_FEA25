@@ -8,24 +8,24 @@ let filmDataWithoutPagination;
 let filmData;
 let filters = {};
 let filmNames = {};
+let searchInput = ''
 
-function filterFilmName(data) {
-  return data.filter((data) => {
-    const name = filmNames.name;
-    if (data.name !== name) {
-      return false;
-    } else return true;
-  });
+function filterFilmsByName(data, searchName) {
+  return data.filter((data) => data.name.toLowerCase().includes(searchName.toLowerCase()));
+}
+
+function renderWithAllFilters() {
+  const filteredFilms = filterFilms(filterFilmsByName(filmDataWithoutPagination, searchInput));
+  
+  renderFilms(filteredFilms)
+  pagination(filteredFilms)
 }
 
 function getFilmNameValue() {
   const inp = document.getElementById("inp");
-  if (inp.value !== "") {
-    filmNames.name = inp.value;
-  } else {
-    console.log(inp.value);
-  }
-  filterFilmName(filmData);
+  searchInput = inp.value;
+
+  renderWithAllFilters();
 }
 
 function handleLanguageChange(event) {
@@ -35,7 +35,7 @@ function handleLanguageChange(event) {
     filters.language = event.value;
   }
 
-  renderFilms(filmData);
+  renderWithAllFilters()
 }
 
 function handleGenreChange(event) {
@@ -45,7 +45,7 @@ function handleGenreChange(event) {
     filters.genre = event.value;
   }
 
-  renderFilms(filmData);
+  renderWithAllFilters()
 }
 
 function filterFilms(data) {
