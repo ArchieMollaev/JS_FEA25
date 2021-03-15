@@ -72,7 +72,7 @@ class Programmer extends Human {
     job = "Programmer";
     super(name, age, job);
   }
-  static getJob() {
+  static getJob(job) {
     console.log(this.job);
   }
 }
@@ -84,15 +84,13 @@ class Tester extends Human {
     job = "Tester";
     super(name, age, job);
   }
-  static getJob() {
+  static getJob(job) {
     console.log(this.job);
   }
 }
 
 const company = new ITCompany();
-const employees = [];
-employees.push(company.create("Programmer", 27));
-employees.push(company.create("Tester", 33));
-console.log(employees);
-console.log(Tester.getJob()); ///////возвращает undefined
-console.log(Programmer.getJob()); ///////возвращает undefined
+const testProgrammer = company.create("Programmer", 27);
+const testTester = company.create("Tester", 27);
+
+console.log(Programmer.getJob(test.job)); ///////возвращает undefined
